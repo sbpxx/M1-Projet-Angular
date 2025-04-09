@@ -1,0 +1,10 @@
+<p>tag works!</p>
+
+
+<ul>
+    @for(tag of tags; track $index) {
+      <li><app-tag [id]="tag.id" [name]="tag.name" [color]="tag.color"></app-tag></li>
+    } @empty {
+      <li>Aucun tag !</li>
+    }
+  </ul>

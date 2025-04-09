@@ -1,0 +1,10 @@
+<p>tags works!</p>
+<button (click)="dialogAddTag()">Ajout de tag</button>
+
+<ul>
+    @for(tag of tags; track $index) {
+      <li>{{ tag.name }}</li>
+    } @empty {
+      <li>Aucun tag !</li>
+    }
+  </ul>
