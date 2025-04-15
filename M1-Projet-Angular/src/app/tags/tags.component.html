@@ -1,0 +1,28 @@
+<p>tags works!</p>
+<button (click)="startEdit()">Ajout de tag</button>
+
+<div *ngIf="editing" class="form">
+  <form (submit)="saveEdit()">
+    <label>
+      Nom :
+      <input type="text" [(ngModel)]="editing.name" name="name" placeholder="Nom de l'étiquette" />
+    </label>
+    <label>
+      Couleur :
+      <input type="color" [(ngModel)]="editing.color" name="color" />
+    </label>
+    <button type="submit">Enregistrer</button>
+    <button type="button" (click)="stopEdit()">Annuler</button>
+  </form>
+</div>
+
+<ul>
+  @for(tag of tags; track $index) {
+      <li>
+    <app-tag [id]="tag.id" [name]="tag.name" [color]="tag.color" (dblclick)="startEdit(tag)" ></app-tag>
+    <button (click)="deleteTag(tag)">Supprimer</button>
+  </li>
+} @empty {
+  <li>Aucun tag !</li>
+}
+</ul>

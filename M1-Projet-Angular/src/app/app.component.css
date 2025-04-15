@@ -1,0 +1,91 @@
+:root {
+    --bg: #87ffd1;
+    --txt: #47794e;
+    --accent: #318bb8;
+    --accent-focus: #29627a;
+}
+
+
+
+a,
+a:visited {
+    color: var(--accent);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover,
+a:focus,
+a:visited:hover,
+a:visited:focus {
+    color: var(--accent-focus);
+    text-decoration: underline;
+}
+
+
+main{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    background-color: var(--bg);
+    color: var(--txt);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+
+h1 {
+    text-align: center;
+}
+
+.flex-sh {
+    flex: 1 1 auto;
+}
+
+nav {
+    display: flex;
+    list-style: none;
+    padding-left: 0px;
+}
+
+nav li {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+nav li a {
+    display: inline-block;
+    margin: auto;
+    padding: 0.8em;
+    min-width: 85%;
+}
+
+
+ul.no-list {
+    display: flex;
+    list-style: none;
+    padding-left: 0px;
+}
+
+ul.no-list li {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.notes-list {
+    list-style: none;
+    padding-left: 0px;
+    display: flex;
+    flex: auto;
+    flex-flow: row wrap;
+}
+
+.notes-list > li {
+    max-width: 40em;
+    padding: 5px;
+}

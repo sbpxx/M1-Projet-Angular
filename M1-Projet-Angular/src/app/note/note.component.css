@@ -1,0 +1,15 @@
+.note {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.note h3 {
+  margin: 0 0 5px;
+}
+
+.note p {
+  margin: 0;
+}

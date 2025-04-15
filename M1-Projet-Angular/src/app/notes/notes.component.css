@@ -1,0 +1,96 @@
+.form {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  margin-top: 5px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.selected-tags {
+  margin-top: 20px;
+}
+
+.selected-tags ul {
+  list-style: none;
+  padding: 0;
+}
+
+.selected-tags li {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.selected-tags li span {
+  margin-right: 5px;
+}
+
+.selected-tags li button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #318bb8;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #29627a;
+}
+
+.tags-container {
+  margin-top: 20px;
+}
+
+.tags-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tags-container li {
+  display: inline-block;
+  margin-right: 10px;
+}
+

@@ -1,0 +1,12 @@
+:root {
+    --bg: #87ffd1;
+    --txt: #47794e;
+    --accent: #318bb8;
+    --accent-focus: #29627a;
+}
+
+body{
+    font-family: Verdana, serif;
+    background-color: var(--bg);
+    color: var(--txt);
+}

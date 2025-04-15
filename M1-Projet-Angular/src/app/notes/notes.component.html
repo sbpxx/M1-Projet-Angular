@@ -1,0 +1,59 @@
+<p>notes works!</p>
+<button (click)="startEdit()">Ajouter une note</button>
+
+<div *ngIf="editing" class="form">
+
+  <form (submit)="saveEdit()">
+      <label>
+        Titre :
+        <input type="text" [(ngModel)]="editing.title" name="title" placeholder="Titre de la note" />
+      </label>
+
+      <label>
+        Contenu :
+        <textarea [(ngModel)]="editing.content" name="content" placeholder="Contenu de la note"></textarea>
+      </label>
+
+      <div class="tags-container">
+        <h4>Tags disponibles :</h4>
+        <ul>
+          <li *ngFor="let tag of getAvailableTags()">
+            <button type="button" (click)="addTag(tag)">
+              {{ tag.name }}
+            </button>
+          </li>
+        </ul>
+      </div>
+      <button type="submit">Enregistrer</button>
+      <button type="button" (click)="stopEdit()">Annuler</button>
+
+  </form>
+
+  <div class="selected-tags">
+    <h4>Tags sélectionnés :</h4>
+    <ul>
+      <li *ngFor="let tag of editing.tags">
+        <span class="selected_tag" [style.background-color]="tag.color">{{ tag.name }}</span>
+        <button type="button" (click)="removeTag(tag)">X</button>
+      </li>
+    </ul>
+  </div>
+  
+</div>
+
+
+<ul>
+  <li *ngFor="let note of notes; trackBy: trackById">
+    <h3>{{ note.title }}</h3>
+    <p>{{ note.content }}</p>
+    <p>
+      <strong>Tags :</strong>
+      <span *ngFor="let tag of note.tags" class="tag" [style.background-color]="tag.color">
+        {{ tag.name }}
+      </span>
+    </p>
+    <button (click)="startEdit(note)">Modifier</button>
+    <button (click)="deleteNote(note)">Supprimer</button>
+  </li>
+  <li *ngIf="notes.length === 0">Aucune note !</li>
+</ul>
