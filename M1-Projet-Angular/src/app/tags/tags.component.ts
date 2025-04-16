@@ -92,10 +92,7 @@ export class TagsComponent {
         this.updateNotesTags(this.editing);
       }
 
-      // Recharger les tags pour voir les changements
       this.loadTags();
-
-      // Arrêter le mode édition
       this.stopEdit();
     }
   }

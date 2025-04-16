@@ -27,23 +27,26 @@
       <button type="submit">Enregistrer</button>
       <button type="button" (click)="stopEdit()">Annuler</button>
 
+      <div class="selected-tags">
+        <h4>Tags sélectionnés :</h4>
+        <ul>
+          <li *ngFor="let tag of editing.tags">
+            <span class="selected_tag" [style.background-color]="tag.color">{{ tag.name }}</span>
+            <button type="button" (click)="removeTag(tag)">X</button>
+          </li>
+        </ul>
+      </div>
+
   </form>
 
-  <div class="selected-tags">
-    <h4>Tags sélectionnés :</h4>
-    <ul>
-      <li *ngFor="let tag of editing.tags">
-        <span class="selected_tag" [style.background-color]="tag.color">{{ tag.name }}</span>
-        <button type="button" (click)="removeTag(tag)">X</button>
-      </li>
-    </ul>
-  </div>
+  
   
 </div>
 
 
-<ul>
-  <li *ngFor="let note of notes; trackBy: trackById">
+<ul id="notes-list">
+  @for(note of notes; track $index) {
+  <li >
     <h3>{{ note.title }}</h3>
     <p>{{ note.content }}</p>
     <p>
@@ -55,5 +58,7 @@
     <button (click)="startEdit(note)">Modifier</button>
     <button (click)="deleteNote(note)">Supprimer</button>
   </li>
-  <li *ngIf="notes.length === 0">Aucune note !</li>
+} @empty {
+  <li>Aucune note !</li>
+}
 </ul>

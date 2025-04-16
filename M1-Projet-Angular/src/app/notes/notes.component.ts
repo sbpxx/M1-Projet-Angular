@@ -36,15 +36,23 @@ export class NotesComponent implements OnInit {
 
   startEdit(note: Note | null = null): void {
     this.editing = note ? { ...note } : { id: 0, title: '', content: '', tags: [] };
+    const notesList = document.getElementById('notes-list');
+    if (notesList) {
+      notesList.style.display = 'none';
+    }
   }
 
   stopEdit(): void {
     this.editing = null;
+    const notesList = document.getElementById('notes-list');
+    if (notesList) {
+      notesList.style.display = 'block';
+    }
   }
 
   saveEdit(): void {
     if (this.editing) {
-
+      
       // si id = 0, c'est une nouvelle note
       if (this.editing.id === 0) {
         this.editing.id = this.notes.length + 1;
@@ -58,11 +66,18 @@ export class NotesComponent implements OnInit {
         }
         // Si l'index est trouvé, on met à jour la note existante
         if (index !== -1) {
+          if (this.editing.title === '') {
+            this.editing.title = "Sans titre";
+          }
           this.notes[index] = this.editing;
         }
       }
       this.notesService.saveNotes(this.notes);
       this.editing = null;
+      const notesList = document.getElementById('notes-list');
+    if (notesList) {
+      notesList.style.display = 'block';
+    }
     }
   }
 
@@ -102,34 +117,7 @@ export class NotesComponent implements OnInit {
     }
   }
 
-  isTagSelected(tag: Tag): boolean {
-    if (this.editing) { // Vérifie si le tag est déjà sélectionné dans la note en cours de modification
-      for (let n of this.editing.tags) {
-        if (n.id === tag.id) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
 
-
-  trackById(index: number, item: Note): number {
-    return item.id;
-  }
-
-  // Vérifie si une note a des tags
-  getTagsForNote(note: Note): Tag[] {
-    let tagsForNote: Tag[] = [];
-    for (let tag of note.tags) {
-      for (let listTag of this.listTags) {
-        if (listTag.id === tag.id) {
-          tagsForNote.push(listTag);
-        }
-      }
-    }
-    return tagsForNote;
-  }
 
   // Vérifie si un tag est déjà utilisé dans une note
   // afin d'afficher les tags disponibles 
@@ -141,7 +129,6 @@ export class NotesComponent implements OnInit {
         for (let selectedTag of this.editing.tags) {
           if (listTag.id === selectedTag.id) {
             isTagUsed = true;
-            break;
           }
         }
         if (!isTagUsed) {
