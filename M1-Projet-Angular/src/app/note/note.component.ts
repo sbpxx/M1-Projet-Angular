@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-note',
@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./note.component.css'],
 })
 export class NoteComponent {
-  @Input() id!: number;
-  @Input() title!: string;
-  @Input() content!: string;
+  id = input<number>(0);
+  title =input<string>("");
+  content= input <string>(""); 
 }

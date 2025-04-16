@@ -1,4 +1,5 @@
 import { Tag } from './tag';
+
 export interface Note {
   id: number;
   title: string;

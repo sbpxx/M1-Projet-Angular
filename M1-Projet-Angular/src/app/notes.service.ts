@@ -20,8 +20,4 @@ export class NotesService {
     this.localStorageService.setItem(this.storageKey, JSON.stringify(notes));
   }
 
-  getTags(): Tag[] {
-    const tagsJson = this.localStorageService.getItem('tags');
-    return tagsJson ? JSON.parse(tagsJson) : [];
-  }
 }

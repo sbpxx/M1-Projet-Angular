@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-tag',
@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./tag.component.css']
 })
 export class TagComponent {
-  @Input() id!: number; 
-  @Input() name: string = ""; 
-  @Input() color: string = ""; 
+  id = input<number>(0);
+  name =input<string>("");
+  color = input<string>(""); 
 }

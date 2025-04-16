@@ -35,7 +35,11 @@ export class NotesComponent implements OnInit {
   }
 
   startEdit(note: Note | null = null): void {
-    this.editing = note ? { ...note } : { id: 0, title: '', content: '', tags: [] };
+    if (note) {
+      this.editing = { ...note};
+    } else {
+      this.editing = { id: 0, title: '', content: '', tags: [] };
+    }
     const notesList = document.getElementById('notes-list');
     if (notesList) {
       notesList.style.display = 'none';
